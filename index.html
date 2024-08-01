@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator.net Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .calculator-button{
+            background-color: #d9d9d9;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+        }
+        .num{
+            background-color: #aec0d3;
+            color: #336699;
+        }
+    </style>
+</head>
+<body class="text-gray-800 ">
+    <!-- Header -->
+    <header class="bg-blue-900 text-white transition-all">
+        <div class="container mx-auto flex justify-between items-center transition-all">
+            <a href="#" ><img src="images/svg-calculator-white.svg" alt="" class="py-3"></a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class=" mx-auto  transition-all">
+        <!-- Calculator Section -->
+        <section class="bg-gray-400 py-10 px-8 transition-all">
+            
+            <div class="flex justify-between items-center">
+                <div class="text-xl text-white font-bold">Free Online Calculators</div>
+                
+            </div>
+			<div class="flex justify-around ">
+
+				<div class="mt-4 p-2 bg-white">
+					<!-- Calculator Display -->
+                <div class="bg-[#336699] px-4  text-right text-xl mb-4" id="calculator-display">0</div>
+                <!-- Calculator Buttons -->
+                <div class="grid lg:grid-cols-2 gap-4 bg-white grid-cols-1 ">
+					<div class=" grid-cols-5 gap-2 lg:grid hidden transition-all">
+                        <button class="calculator-button" onclick="handleFunction('sin')">sin</button>
+                        <button class="calculator-button" onclick="handleFunction('cos')">cos</button>
+                        <button class="calculator-button" onclick="handleFunction('tan')">tan</button>
+                        <button class="calculator-button" onclick="handleFunction('deg')">deg</button>
+                        <button class="calculator-button" onclick="handleFunction('rad')">rad</button>
+                    
+                        <button class="calculator-button" onclick="handleFunction('asin')">sin<sup>-1</sup></button>
+                        <button class="calculator-button" onclick="handleFunction('acos')">cos<sup>-1</sup></button>
+                        <button class="calculator-button" onclick="handleFunction('atan')">tan<sup>-1</sup></button>
+                        <button class="calculator-button" onclick="appendToDisplay('Math.PI')">π</button>
+                        <button class="calculator-button" onclick="appendToDisplay('Math.E')">e</button>
+                    
+                        <button class="calculator-button" onclick="handlePower()">x<sup>y</sup></button>
+                        <button class="calculator-button" onclick="handlePower('cube')">x<sup>3</sup></button>
+                        <button class="calculator-button" onclick="handlePower('square')">x<sup>2</sup></button>
+                        <button class="calculator-button" onclick="handleFunction('exp')">e<sup>x</sup></button>
+                        <button class="calculator-button" onclick="handleFunction('10^x')">10<sup>x</sup></button>
+                    
+                        <button class="calculator-button" onclick="handleFunction('sqrt')">√</button>
+                        <button class="calculator-button" onclick="handleFunction('cbrt')">³√</button>
+                        <button class="calculator-button" onclick="handleFunction('yrt')">y√x</button>
+                        <button class="calculator-button" onclick="appendToDisplay('(')">&#40;</button>
+                        <button class="calculator-button" onclick="appendToDisplay(')')">&#41;</button>
+                    
+                        <button class="calculator-button" onclick="handleFunction('reciprocal')">1/x</button>
+                        <button class="calculator-button" onclick="appendToDisplay('%')">%</button>
+                        <button class="calculator-button" onclick="handleFunction('factorial')">n!</button>
+                        <button class="calculator-button" onclick="handleFunction('ln')">ln</button>
+                        <button class="calculator-button" onclick="handleFunction('log')">log</button>
+                    
+                        
+                      
+	
+				</div>
+					<div class="grid grid-cols-5 gap-2 ">
+                        <button class="calculator-button num" onclick="appendToDisplay('7')">7</button>
+                        <button class="calculator-button num" onclick="appendToDisplay('8')">8</button>
+                        <button class="calculator-button num" onclick="appendToDisplay('9')">9</button>
+                        <button class="calculator-button" onclick="handleOperator('+')">+</button>
+                        <button class="calculator-button" onclick="handleBack()">Back</button>
+                    
+                        <button class="calculator-button num" onclick="appendToDisplay('4')">4</button>
+                        <button class="calculator-button num" onclick="appendToDisplay('5')">5</button>
+                        <button class="calculator-button num" onclick="appendToDisplay('6')">6</button>
+                        <button class="calculator-button" onclick="handleOperator('-')">−</button>
+                        <button class="calculator-button" onclick="handleMemory('Ans')">Ans</button>
+                    
+                        <button class="calculator-button num" onclick="appendToDisplay('1')">1</button>
+                        <button class="calculator-button num" onclick="appendToDisplay('2')">2</button>
+                        <button class="calculator-button num" onclick="appendToDisplay('3')">3</button>
+                        <button class="calculator-button" onclick="handleOperator('*')">×</button>
+                        <button class="calculator-button" onclick="handleMemory('M+')">M+</button>
+                    
+                        <button class="calculator-button" onclick="appendToDisplay('0')">0</button>
+                        <button class="calculator-button" onclick="appendToDisplay('.')">.</button>
+                        <button class="calculator-button" onclick="handleFunction('exp')">EXP</button>
+                        <button class="calculator-button" onclick="handleOperator('/')">÷</button>
+                        <button class="calculator-button" onclick="handleMemory('M-')">M-</button>
+                    
+                        <button class="calculator-button" onclick="handleFunction('rnd')">RND</button>
+                        <button class="calculator-button" onclick="handleSign()">+_</button>
+                        <button class="calculator-button num" onclick="handleClear()">AC</button>
+                        <button class="calculator-button num" onclick="handleEquals()">=</button>
+                        <button class="calculator-button" onclick="handleMemory('MR')">MR</button>
+				</div>
+                </div>
+				
+				</div> 
+				<div class="lg:flex hidden items-start mt-8 pt-8">
+                    <input type="text" class="border  p-2 w-64" placeholder="Search">
+                    <button class="bg-blue-700 text-white px-4 py-2">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section >
+            <div class="grid text-lg grid-cols-1 px-12 md:grid-cols-2 justify-items-center bg-white lg:grid-cols-4 gap-4 ">
+                <div class=" p-4  ">
+                <img src="images/img-financial-calculator.jpg" style="border-radius:50%" alt="Image of financial documents">
+                <h3 class="text-green-700 font-bold mt-2">Financial Calculators</h3>
+                <ul class="mt-2 space-y-1">
+                    <li><a href="#" class="text-blue-600 hover:underline">Mortgage Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Loan Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Auto Loan Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Interest Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Payment Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Retirement Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Amortization Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Investment Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Inflation Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Finance Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Income Tax Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Compound Interest Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Salary Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Interest Rate Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Sales Tax Calculator</a></li>
+                </ul>
+            </div>
+            <div class=" p-4 ">
+                <img src="images/img-fitness-calculator.jpg" style="border-radius:50%" alt="Image of fitness equipment">
+                <h3 class="text-green-700 font-bold mt-2">Fitness & Health Calculators</h3>
+                <ul class="mt-2 space-y-1">
+                    <li><a href="#" class="text-blue-600 hover:underline">BMI Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Calorie Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Body Fat Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">BMR Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Ideal Weight Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Pace Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Pregnancy Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Pregnancy Conception Calculator</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Due Date Calculator</a></li>
+                </ul>
+            </div>
+           <div class=" p-4 ">
+    <img src="images/img-math-calculator.jpg" style="border-radius:50%" alt="Image of mathematical tools">
+    <h3 class="text-green-700 font-bold mt-2">Math Calculators</h3>
+    <ul class="mt-2 space-y-1">
+        <li><a href="#" class="text-blue-600 hover:underline">Age Calculator</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Date Calculator</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Time Calculator</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Hours Calculator</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">GPA Calculator</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Grade Calculator</a></li>
+    </ul>
+</div>
+
+<div class=" p-4 ">
+    <img src="images/img-other-calculator.jpg" style="border-radius:50%" alt="Image of miscellaneous tools">
+    <h3 class="text-green-700 font-bold mt-2">Other Calculators</h3>
+    <ul class="mt-2 space-y-1">
+		<li><a href="#" class="text-blue-600 hover:underline">Age Calculator</a></li>
+		<li><a href="#" class="text-blue-600 hover:underline">Date Calculator</a></li>
+		<li><a href="#" class="text-blue-600 hover:underline">time Calculator</a></li>
+		<li><a href="#" class="text-blue-600 hover:underline">hour Calculator</a></li>
+		<li><a href="#" class="text-blue-600 hover:underline">GPA Calculator</a></li>
+		<li><a href="#" class="text-blue-600 hover:underline">Grade Calculator</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Concrete Calculator</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Subnet Calculator</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Password Generator</a></li>
+        <li><a href="#" class="text-blue-600 hover:underline">Conversion Calculator</a></li>
+    </ul>
+    
+</div>
+</div>
+<button class=" mx-auto  self-center flex mb-10 bg-green-200 px-4 py-2 align-self-center">All calulator</button>
+			</section>	
+			</main>	
+            <footer class="bg-gray-200   flex justify-center">
+                <main class="w-[1100px]">
+                  
+                    <p class="py-4">Our sole focus is to provide fast, comprehensive, convenient, free online calculators in a plethora of areas.Currently, we have around 200 calculators to help you "do the math" quickly in areas such as finance, fitness, health, math, and others, and we are still developing more.Our goal is to become the one-stop, go-to site for people who need to make quick calculations.Additionally, we believe the internet should be a source of free information. Therefore, all of our tools and services are completely free, with no registration required.
+                        </p><p class="py-4">We coded and developed each calculator individually and put each one through strict, comprehensive testing. However, please inform us if you notice even the slightest error - your input is extremely valuable to us.While most calculators on Calculator.net are designed to be universally applicable for worldwide usage, some are for specific countries only. For example, the Income Tax Calculator is for United States residents only.</p>
+                        <header>
+                            <nav>
+                                <ul class="flex gap-2 justify-center pb-12 ">
+                                    <li><a href="#about-us" class="underline">About Us</a></li>
+                                    <li><a href="#sitemap"class="underline">Sitemap</a></li>
+                                    <li><a href="#terms-of-use"class="underline">Terms of Use</a></li>
+                                    <li><a href="#privacy-policy"class="underline">Privacy Policy</a></li>
+                                    <p>&copy; 2008 - 2024 <span class="underline">calculator.net</span></p>
+                                </ul>
+                            </nav>
+                        </header> 
+                </main>
+                    
+          
+            </footer>
+            <script>
+                const display = document.getElementById('calculator-display');
+                let currentNumber = '0';
+                let memory = '';
+                let operator = '';
+                let answer = '';
+              
+                function appendToDisplay(value) {
+                  if (value === 'Math.PI' || value === 'Math.E') {
+                    display.textContent += value;
+                  } else {
+                    if (currentNumber === '0' && value !== '.') {
+                      currentNumber = value.toString();
+                    } else {
+                      currentNumber += value.toString();
+                    }
+                    display.textContent = currentNumber;
+                  }
+                }
+              
+                function handleFunction(func) {
+                  let result;
+                  switch (func) {
+                    case 'sin':
+                      result = Math.sin(parseFloat(currentNumber));
+                      break;
+                    case 'cos':
+                      result = Math.cos(parseFloat(currentNumber));
+                      break;
+                    case 'tan':
+                      result = Math.tan(parseFloat(currentNumber));
+                      break;
+                    case 'deg':
+                      result = toDegrees(parseFloat(currentNumber));
+                      break;
+                    case 'rad':
+                      result = toRadians(parseFloat(currentNumber));
+                      break;
+                    case 'asin':
+                      result = Math.asin(parseFloat(currentNumber));
+                      break;
+                    case 'acos':
+                      result = Math.acos(parseFloat(currentNumber));
+                      break;
+                    case 'atan':
+                      result = Math.atan(parseFloat(currentNumber));
+                      break;
+                    case 'exp':
+                      result = Math.exp(parseFloat(currentNumber));
+                      break;
+                    case '10^x':
+                      result = Math.pow(10, parseFloat(currentNumber));
+                      break;
+                    case 'sqrt':
+                      result = Math.sqrt(parseFloat(currentNumber));
+                      break;
+                    case 'cbrt':
+                      result = Math.cbrt(parseFloat(currentNumber));
+                      break;
+                    case 'yrt':
+                      result = Math.pow(parseFloat(currentNumber), 1/parseFloat(prompt('Enter root')));
+                      break;
+                    case 'reciprocal':
+                      result = 1 / parseFloat(currentNumber);
+                      break;
+                    case 'factorial':
+                      result = factorial(parseFloat(currentNumber));
+                      break;
+                    case 'ln':
+                      result = Math.log(parseFloat(currentNumber));
+                      break;
+                    case 'log':
+                      result = Math.log10(parseFloat(currentNumber));
+                      break;
+                    case 'rnd':
+                      result = Math.random();
+                      break;
+                  }
+                  currentNumber = result.toString();
+                  display.textContent = currentNumber;
+                }
+              
+                function handlePower(type) {
+                  let result;
+                  switch (type) {
+                    case 'cube':
+                      result = Math.pow(parseFloat(currentNumber), 3);
+                      break;
+                    case 'square':
+                      result = Math.pow(parseFloat(currentNumber), 2);
+                      break;
+                    default:
+                      result = Math.pow(parseFloat(currentNumber), parseFloat(prompt('Enter exponent')));
+                      break;
+                  }
+                  currentNumber = result.toString();
+                  display.textContent = currentNumber;
+                }
+              
+                function handleOperator(op) {
+                  memory = currentNumber;
+                  currentNumber = '0';
+                  operator = op;
+                  display.textContent = memory + ' ' + operator;
+                }
+              
+                function handleMemory(type) {
+                  switch (type) {
+                    case 'M+':
+                      memory = parseFloat(memory) + parseFloat(currentNumber);
+                      break;
+                    case 'M-':
+                      memory = parseFloat(memory) - parseFloat(currentNumber);
+                      break;
+                    case 'MR':
+                      currentNumber = memory.toString();
+                      display.textContent = currentNumber;
+                      break;
+                    case 'Ans':
+                      currentNumber = answer;
+                      display.textContent = currentNumber;
+                      break;
+                  }
+                }
+              
+                function handleClear() {
+                  currentNumber = '0';
+                  memory = '';
+                  operator = '';
+                  display.textContent = currentNumber;
+                }
+              
+                function handleEquals() {
+                  let result;
+                  switch (operator) {
+                    case '+':
+                      result = parseFloat(memory) + parseFloat(currentNumber);
+                      break;
+                    case '-':
+                      result = parseFloat(memory) - parseFloat(currentNumber);
+                      break;
+                    case '*':
+                      result = parseFloat(memory) * parseFloat(currentNumber);
+                      break;
+                    case '/':
+                      result = parseFloat(memory) / parseFloat(currentNumber);
+                      break;
+                  }
+                  currentNumber = result.toString();
+                  display.textContent = currentNumber;
+                  answer = currentNumber;
+                  operator = '';
+                }
+              
+                function handleBack() {
+                  currentNumber = currentNumber.slice(0, -1);
+                  if (currentNumber === '') {
+                    currentNumber = '0';
+                  }
+                  display.textContent = currentNumber;
+                }
+              
+                function toDegrees(radians) {
+                  return radians * (180 / Math.PI);
+                }
+              
+                function toRadians(degrees) {
+                  return degrees * (Math.PI / 180);
+                }
+              
+                function factorial(n) {
+                  if (n === 0) {
+                    return 1;
+                  } else {
+                    return n * factorial(n - 1);
+                  }
+                }
+              </script></body>
+			</html>	
