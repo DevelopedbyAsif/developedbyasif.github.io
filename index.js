@@ -48,20 +48,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 const line = document.querySelector('.line');
-
+var isexecuted = false
 
 // Function to update line height based on scroll position
 function updateLineHeight() {
+    if(!isexecuted){;
 // Calculate the height based on scroll position
 const scrollY = window.scrollY;
-const windowHeight = window.innerHeight;
-const totalHeight = document.body.scrollHeight;
+
 
 // Calculate the height of the line (gro633 as you scroll)
 const lineHeight = Math.min(scrollY -690 );
-console.log(lineHeight)
+
+if(scrollY>1390){isexecuted = true;
+
+}
+
 // Update the height of the line
-line.style.height = `${lineHeight}px`;
+line.style.height = `${lineHeight}px`;}
 }
 
 // Add scroll event listener
@@ -69,8 +73,4 @@ window.addEventListener('scroll', updateLineHeight);
 
 // Initial update
 updateLineHeight();
-// Add scroll event listener
-window.addEventListener('scroll', updateLineHeight);
 
-// Initial update
-updateLineHeight();
