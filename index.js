@@ -60,7 +60,7 @@ const scrollY = window.scrollY;
 // Calculate the height of the line (gro633 as you scroll)
 const lineHeight = Math.min(scrollY -690 );
 
-if(scrollY>1390){isexecuted = true;
+if(scrollY>1340){isexecuted = true;
 
 }
 
