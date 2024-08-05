@@ -27,14 +27,20 @@
                 <h1 class="font-bold text-xl md:text-3xl ">Asif</h1>
             </div>
             <div>
-                <ul class="lg:flex hidden space-x-2 font-semibold items-center text-xl">
-                    <li class="px-2 py-1"><a href="" class="tracking-wide">Home</a></li>
-                    <li class="px-2 py-1"><a href="">About</a></li>
-                    <li class="px-2 py-1"><a href="">Service</a></li>
-                    <li class="px-2 py-1"><a href="">Project</a></li>
+             
+                <ul id="menu" class="lg:flex lg:static right-0 absolute  font-semibold items-center text-xl">
+                    <li class="px-2 py-1 mx-2"><a href="" class="">Home</a></li>
+                    <li class="px-2 py-1 mx-2"><a href="">About</a></li>
+                    <li class="px-2 py-1 mx-2"><a href="">Skill</a></li>
+                    <li class="px-2 py-1 mx-2"><a href="">Project</a></li>
                 </ul>
             </div>
-            <div><a href="" class= " hidden sm:block rounded-lg bu px-4 py-2 transition-all font-semibold">Get In Touch</a></div>
+            <div class="flex gap-4 w-max"><a  id="button" href="" class= " hidden sm:block rounded-lg w-fit text-nowrap bu px-4 py-2 transition-all font-semibold">Get In Touch</a>
+              <div class="container lg:hidden block" onclick="myFunction(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+              </div></div>
         </header>
     <div id="Hero" class="h-[642px] pt-20 z-2 w-full md:px-12 px-8 flex  justify-center flex-col w-fit">
         <div class=" w-fit md:ml-[2vw]">
@@ -46,8 +52,8 @@
      
   
   <div class="flex flex-col lg:flex-row items-center bg-[#3dd0b7] rounded-lg lg:p-24 px-4 py-12 shadow-md">
-    <div class="relative mb-12 lg:mb-0 md:mr-6 ">
-      <img class="w-64 h-64 rounded-full border-4 border-accent-foreground " src="https://placehold.co/128x128" alt="Profile Picture">
+    <div class=" mb-12 w-64 h-64  border-4 border-accent-foreground rounded-full overflow-hidden lg:mb-0 md:mr-6 ">
+      <img class=" scale-[1.5] relative top-[30px] " src="as.jpg" alt="Profile Picture">
       
     </div>
     <div class="flex-1 roboto">
@@ -59,17 +65,18 @@
     </div>
   </div>
 
-  <div class="bg-background text-foreground p-6 rounded-lg shadow-lg  my-8 animate-fade-in">
+  <div id="Skill" class="bg-background text-foreground p-6 rounded-lg shadow-lg  my-8 animate-fade-in">
     <h2 class="text-3xl font-bold mb-6 text-center text-accent">Skills</h2>
-    <div class="relative  flex flex-col items-center">
+    <div class="relative  flex flex-col text-md items-center">
       <div class="md:absolute md:flex hidden inset-0 flex p-0 py-[2.5rem] justify-center">
-        <div class="w-1 bg-black max-h-full min-h-0 h-0 line "></div>
+        <div class="w-1 bg-black max-h-full min-h-0 h-0 line "><div id="h" class="w-3 bg-black md:block absolute hidden  bottom-[2.5rem]  h-1"></div></div>
+        
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+      <div class="grid grid-cols-1 md:grid-cols-2  text-md gap-6 w-full ">
         <div class="flex item justify-end">
           <div class="bg-zinc-800 text-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 w-full md:w-5/6 animate-slide-in-left">
-            <h3 class="text-xl font-semibold mb-2">Frontend Development</h3>
-            <p class="text-muted-foreground">HTML, CSS, JavaScript, React, TailwindCSS</p>
+            <h3 class="text-xl font-semibold mb-2">HTML5</h3>
+            <p class="">Expertise in structuring web content using HTML5</p>
             
           </div>
           <div class="w-2 bg-black md:block relative hidden mr-[-10px] top-10 h-1"></div>
@@ -81,8 +88,8 @@
         <div class="flex item justify-start">
             <div class="w-2 bg-black md:block relative hidden ml-[-10px] top-10 h-1"></div>
             <div class="bg-zinc-200  text-zinc-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 w-full md:w-5/6 animate-slide-in-right">
-              <h3 class="text-xl font-semibold mb-2">Backend Development</h3>
-              <p class="text-muted-foreground">Node.js, Express, MongoDB, SQL</p>
+              <h3 class="text-xl font-semibold mb-2">CSS3</h3>
+              <p class="">Proficiency in styling and layout with CSS3</p>
             </div>
             
           </div>
@@ -92,8 +99,8 @@
         </div>
         <div class="flex item justify-end">
           <div class="bg-blue-500 text-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 w-full md:w-5/6 animate-slide-in-left">
-            <h3 class="text-xl font-semibold mb-2">DevOps</h3>
-            <p class="text-muted-foreground">Docker, Kubernetes, CI/CD, AWS</p>
+            <h3 class="text-xl font-bold mb-2">JavaScript</h3>
+            <p class=""> Strong skills for creating interactive and dynamic web features.</p>
           </div>
           <div class="w-2 bg-black md:block relative hidden mr-[-10px] top-10 h-1"></div>
         </div>
@@ -104,8 +111,8 @@
         <div class="flex  item justify-start">
             <div class="w-2 bg-black md:block relative hidden ml-[-10px] top-10 h-1"></div>
           <div class="bg-red-500 text-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 w-full md:w-5/6 animate-slide-in-right">
-            <h3 class="text-xl font-semibold mb-2">Mobile Development</h3>
-            <p class="text-muted-foreground">React Native, Swift, Kotlin</p>
+            <h3 class="text-xl font-semibold mb-2">React</h3>
+            <p class="">Experience with React for building component-based user interfaces </p>
           </div>
         </div>
         <div class="md:block flex hidden justify-start">
@@ -114,8 +121,8 @@
         </div>
         <div class="flex item  justify-end">
           <div class="bg-yellow-300 text-zinc-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 w-full md:w-5/6 animate-slide-in-left">
-            <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
-            <p class="text-muted-foreground">Figma, Sketch, Adobe XD</p>
+            <h3 class="text-xl font-semibold mb-2">TailwindCSS</h3>
+            <p class="">Ability to design responsive and custom user interfaces</p>
           </div>
           <div class="w-2 bg-black md:block relative hidden mr-[-10px] top-10 h-1"></div>
         </div>
@@ -125,10 +132,10 @@
         </div>
         <div class="flex item flex-col-reverse justify-start">
           <div class="bg-zinc-300 text-zinc-800 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 w-full md:w-5/6 animate-slide-in-right">
-            <h3 class="text-xl font-semibold mb-2">Testing</h3>
-            <p class="text-muted-foreground">Jest, Mocha, Cypress</p>
+            <h3 class="text-xl font-semibold mb-2">Responsive Web Design</h3>
+            <p class="">Knowledge of techniques and best practices for responsive web app.</p>
           </div>
-          <div class="w-2 bg-black md:block relative hidden ml-[-10px] top-[3.25rem] h-1"></div>
+          
 
         </div>
       </div>
